@@ -3,9 +3,6 @@ import Header from "../Header";
 import WithBackground from "../WithBackground";
 
 const Container = styled.div`
-  /* background-image: url("bg-pattern.jpg"); */
-  /* background-repeat: repeat; */
-  /* background-size: 35% 35%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,25 +21,17 @@ const Title = styled.div`
   font-size: 35px;
   font-weight: 900;
 `;
-const Team = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20px;
 
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`;
 const Section = styled.div`
   margin-top: 50px;
 `;
+
 const SubHeading = styled.div`
   font-size: 35px;
   font-weight: 900;
   text-align: center;
 `;
+
 const Content = styled.div`
   font-size: 21px;
   text-align: center;
@@ -55,61 +44,39 @@ export default function AboutUs() {
       <WithBackground>
         <Container>
           <br />
-          <Title>About Us</Title>
-          <br />
-          <Team>
-            <Member image="" name="Abhigyan Goswami" />
-            <Member image="" name="Saurabh Burnwal" />
-            <Member image="" name="Amit" />
-            <Member image="" name="Kumar Gaurav" />
-          </Team>
+          <Title>About the Project</Title>
+          <Content>
+            GoFarm is a web-based platform designed to support farmers by using
+            machine learning and real-time data to enhance decision-making and
+            boost productivity. It addresses key agricultural challenges such as
+            unpredictable production costs, limited access to government schemes,
+            and inefficient resource use. By offering crop cost forecasting,
+            personalized recommendations, and live policy updates through an
+            intuitive dashboard, GoFarm empowers farmers to make informed
+            choices, improve sustainability, and increase profitability.
+          </Content>
           <br />
           <Section>
-            <SubHeading>Our Vision</SubHeading>
+            <SubHeading>Our Mission</SubHeading>
             <Content>
-              “Our vision is to build a digital platform that fosters
-              sustainable agricultural practices by integrating advanced
-              technologies for precise crop prediction and cost analysis.
-              Through comprehensive data analytics, we aim to empower farmers
-              with actionable insights that boost productivity while minimising
-              environmental impact. Our website serves as a resource hub,
-              connecting stakeholders and encouraging a collaborative approach
-              to achieving a more sustainable future for agriculture.”
+              “Our mission is to create a digital platform that empowers farmers
+              with actionable insights through advanced technologies. By
+              leveraging data analytics, we aim to promote sustainable
+              agricultural practices, enhance productivity, and minimize
+              environmental impact.”
+            </Content>
+          </Section>
+          <Section>
+            <SubHeading>What We Do</SubHeading>
+            <Content>
+              “We provide tools for precise crop prediction, cost analysis, and
+              resource management. Our platform connects stakeholders in the
+              agricultural ecosystem, fostering collaboration and innovation to
+              achieve a sustainable future for farming.”
             </Content>
           </Section>
         </Container>
       </WithBackground>
     </Header>
-  );
-}
-
-const MemberContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  gap: 15px;
-  padding: 30px;
-  border-radius: 10px;
-  align-items: center;
-  box-shadow: -2px 1px 12px 3px rgb(0 0 0 / 10%);
-`;
-const MemberImage = styled.img`
-  height: 170px;
-  width: 170px;
-  object-fit: cover;
-  border-radius: 300px;
-  border: 10px solid var(--color2);
-`;
-const MemberName = styled.div`
-  font-size: 25px;
-  font-weight: 900;
-`;
-
-function Member({ image, name }) {
-  return (
-    <MemberContainer>
-      <MemberImage src={"/" + image} />
-      <MemberName>{name}</MemberName>
-    </MemberContainer>
   );
 }

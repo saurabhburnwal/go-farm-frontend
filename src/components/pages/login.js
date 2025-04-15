@@ -103,24 +103,26 @@ export default function Login(props) {
 
   async function doLogin() {
     setLoading(true);
-    props.logged(true);
-    // try {
-    //   let authData = await makeRequest("/login", "POST", {
-    //     username: username.toLowerCase(),
-    //     password,
-    //   });
+    
+    try {
+      let authData = await makeRequest("/login", "POST", {
+        username: username.toLowerCase(),
+        password,
+      });
 
-    //   if (authData.data) {
-    //     if (authData.data.token) {
-    //       localStorage.setItem("goFarmUser", JSON.stringify(authData.data));
-    //       window.location.reload();
-    //     }
-    //   }
-    //   console.log(authData);
-    // } catch (e) {
-    //   console.log(e);
-    //   toast(e.message);
-    // }
+      if (authData.data) {
+        if (authData.data.token) {
+          localStorage.setItem("goFarmUser", JSON.stringify(authData.data));
+          props.logged(true);
+          window.location.reload();
+        }
+      }
+      console.log(authData);
+    } catch (e) {
+      console.log(e);
+      props.logged(false);
+      toast(e.message);
+    }
 
     setLoading(false);
   }

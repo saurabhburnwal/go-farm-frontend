@@ -118,8 +118,18 @@ export default function Signup() {
   );
 
   async function doSignup() {
-    if (!username || !password || !email || !name)
+    if (!username || !password || !email || !name) {
       return toast("Fill required fields");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return toast("Please enter a valid email address");
+    }
+
+    if (password.length < 8) {
+      return toast("Password must be at least 8 characters long");
+    }
 
     setLoading(true);
 
@@ -133,8 +143,9 @@ export default function Signup() {
 
       if (authData.data) {
         toast(
-          "Your account has been created. Please go to login page and login"
+          "Your account has been created successfully. Please login to continue."
         );
+        navigate("/");
       }
       console.log(authData);
     } catch (e) {

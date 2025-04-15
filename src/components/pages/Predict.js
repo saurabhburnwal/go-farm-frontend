@@ -174,7 +174,7 @@ export default function Predict() {
       <ResultCard>
         <FieldAndValue>
           <Field>Crop Production</Field>
-          <Value>{production}</Value>
+          <Value>{production.toFixed(2)}</Value>
         </FieldAndValue>
         <FieldAndValue>
           <Field>Harvest Cost</Field>

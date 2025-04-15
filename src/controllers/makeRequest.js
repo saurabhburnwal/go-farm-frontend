@@ -17,9 +17,10 @@ export default async function makeRequest(path, method = "GET", body) {
   } catch (e) {
     console.log(e);
     if (e.response) {
-      console.log(e.response.data.message);
-      throw Error(e.response.data.message);
+      console.log(e.response.data.detail);
+      throw Error(e.response.data.detail);
     } else {
+      console.log(e.message);
       throw Error(e.message);
     }
   }
